@@ -1,0 +1,48 @@
+#include<stdio.h>
+int main()
+{
+    int i,j,n,temp;
+    
+printf("enter the value of n \n");
+scanf("%d",&n);
+
+int a[n];
+
+printf("enter the elements of array:\n");
+
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+
+printf("unsorted array elements:\n");
+
+for(i=0;i<n;i++)
+{
+printf("%d\t",a[i]);
+}
+
+for(i=0;i<n-1;i++)
+{                                     // flag=0
+    for(j=0;j<n-1-i;j++)
+    {
+        if(a[j]>a[j+1])
+        {
+            temp=a[j];
+            a[j]=a[j+1];
+            a[j+1]=temp;             // flag=1
+        }
+    }                                // if flag is 0 then break because array is already sorted
+}
+
+printf("\nsorted array:\n");
+
+for(i=0;i<n;i++)
+{
+printf("%d\t",a[i]);
+}
+
+}                                         
+
+
+
