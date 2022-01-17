@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+    int n,i,j,k,temp;
+    printf("enter n \n");
+    scanf("%d",&n);
+
+    int a[n];
+
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+    printf("array before sorting is \n");
+
+    for(i=0;i<n;i++)
+    {
+        printf("%d  \t",a[i]);
+    }
+
+    for(i=0;i<n-1;i++)
+    {
+        k=i;
+        for(j=i;j<n;j++)
+        {
+            if(a[j]<a[k])
+            {
+                k=j;
+            }
+        }
+
+        temp=a[k];
+        a[k]=a[i];
+        a[i]=temp;
+    }
+
+    printf("\nsorted array is \n");
+ 
+    for(i=0;i<n;i++)
+    {
+        printf("%d \t",a[i]);
+    }
+
+}
