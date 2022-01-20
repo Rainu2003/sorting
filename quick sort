@@ -1,0 +1,149 @@
+//  FIRST APPROACH
+//  IN THIS APPROACH WE R PARTITIONING ARRAY FROM ONE ONE END
+
+#include<stdio.h>
+int part(int a[],int lb,int ub);
+void quick(int a[],int lb,int ub)
+{
+    if(lb<ub)
+    {
+    int partition;
+
+    partition=part(a,lb,ub);
+    quick(a,lb,partition-1);
+    quick(a,partition+1,ub);
+    }
+}
+int part(int a[],int lb,int ub)
+{
+    int pivot=a[lb];
+    int i=lb+1,j=lb+1,temp;
+ while(i<=ub)
+ {
+    if(a[i]>pivot)
+    {
+        i++;
+    }
+    else{
+    temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;
+    i++; j++;
+    }
+}
+
+temp=a[lb];
+a[lb]=a[j-1];
+a[j-1]=temp;
+
+return (j-1);
+}
+int main()
+{
+    int n,i,j;
+    printf("enter n \n");
+    scanf("%d",&n);
+
+    int a[n];
+
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+    printf("array before sorting is \n");
+
+    for(i=0;i<n;i++)
+    {
+        printf("%d  ",a[i]);
+    }
+       
+    quick(a,0,n-1);
+
+    printf("\nsorted array is \n");
+ 
+    for(i=0;i<n;i++)
+    {
+        printf("%d \t",a[i]);
+    }
+
+}
+
+
+// ANOTHER APPROACH
+
+
+/* 
+#include<stdio.h>
+int part(int a[],int lb,int ub);
+void quick(int a[],int lb,int ub)
+{
+    if(lb<ub)
+    {
+    int partition;
+
+    partition=part(a,lb,ub);
+    quick(a,lb,partition-1);
+    quick(a,partition+1,ub);
+    }
+}
+int part(int a[],int lb,int ub)
+{
+    int pivot=a[lb];
+    int i=lb,j=ub,temp;
+do{
+    while(a[i]<=pivot)
+    {
+        i++;
+    }
+    while(a[j]>pivot)
+    {
+        j--;
+    }
+ if(i<j)
+ {
+    temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;
+ }
+  
+}while(i<j);
+
+temp=a[lb];
+a[lb]=a[j];
+a[j]=temp;
+
+return j;
+}
+int main()
+{
+    int n,i,j;
+    printf("enter n \n");
+    scanf("%d",&n);
+
+    int a[n];
+
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+    printf("array before sorting is \n");
+
+    for(i=0;i<n;i++)
+    {
+        printf("%d  ",a[i]);
+    }
+       
+    quick(a,0,n-1);
+
+    printf("\nsorted array is \n");
+ 
+    for(i=0;i<n;i++)
+    {
+        printf("%d \t",a[i]);
+    }
+
+}
+
+*/
